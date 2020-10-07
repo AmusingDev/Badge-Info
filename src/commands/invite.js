@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
+const botconfig = require('./../botconfig.json');
+const prefix = botconfig.prefix;
 
 module.exports.run = async (client, msg, args) => {
 
@@ -10,7 +12,7 @@ module.exports.run = async (client, msg, args) => {
 
 	const embed = new MessageEmbed()
 
-		.setColor(0x7289DA)
+		.setColor(botconfig.embedColor)
 		.setTitle('Invite Link')
 		.setDescription('https://discord.com/oauth2/authorize?client_id=747880781212418189&permissions=3072&scope=bot')
 
@@ -18,5 +20,5 @@ module.exports.run = async (client, msg, args) => {
 }
 
 module.exports.help = {
-	name: "+invite",
+	name: `${prefix}invite`,
 }
