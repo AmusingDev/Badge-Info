@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
+const botconfig = require('./../botconfig.json');
+const prefix = botconfig.prefix;
 
 module.exports.run = async (client, msg, args) => {
 
@@ -10,7 +12,7 @@ module.exports.run = async (client, msg, args) => {
 
 	const embed = new MessageEmbed()
 
-		.setColor(0x7289DA)
+		.setColor(botconfig.embedColor)
 		.setTitle('Discord Badge Information')
 		.setDescription('[[click here]](https://discordia.me/en/badges) for more information!')
 		.addField('HypeSquad', '\n<:bravery:745222383752839169> <:brilliance:745222472722284564> <:balance:745222527529517127> Obtain one of these badges by completing the HypeSquad quiz in your user settings and showing how excited you are about discord!\n<:events:745222154651697284> Awarded to HypeSquad event coordinators and attendees.')
@@ -23,5 +25,5 @@ module.exports.run = async (client, msg, args) => {
 }
 
 module.exports.help = {
-	name: "+badges",
+	name: `${prefix}badges`,
 }
