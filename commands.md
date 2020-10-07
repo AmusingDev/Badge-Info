@@ -44,4 +44,11 @@
 </td><td>N/A
 </td></tr>
 
+<tr>
+<td>source
+</td><td>Provides a link to the bot's source code
+</td><td>+invite
+</td><td>N/A
+</td></tr>
+
 </tbody></table></center>
