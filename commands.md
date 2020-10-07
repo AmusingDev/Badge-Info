@@ -47,7 +47,7 @@
 <tr>
 <td>source
 </td><td>Provides a link to the bot's source code
-</td><td>+invite
+</td><td>+source
 </td><td>N/A
 </td></tr>
 
