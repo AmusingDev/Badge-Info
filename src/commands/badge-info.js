@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
+const botconfig = require('./../botconfig.json');
+const prefix = botconfig.prefix;
 
 module.exports.run = async (client, msg, args) => {
 
@@ -31,7 +33,7 @@ module.exports.run = async (client, msg, args) => {
 
 		const embed = new MessageEmbed()
 
-			.setColor(0x7289DA)
+			.setColor(botconfig.embedColor)
 			.setTitle(`List of ${msg.author.username}#${msg.author.discriminator}'s Badges`)
 			.setDescription(arr)
 
@@ -64,7 +66,7 @@ module.exports.run = async (client, msg, args) => {
 
 		const embed = new MessageEmbed()
 
-			.setColor(0x7289DA)
+			.setColor(botconfig.embedColor)
 			.setTitle(`List of ${mainUser.username}#${mainUser.discriminator}'s Badges`)
 			.setDescription(arr)
 
@@ -74,5 +76,5 @@ module.exports.run = async (client, msg, args) => {
 }
 
 module.exports.help = {
-	name: "+badge-info",
+	name: `${prefix}badge-info`,
 }
