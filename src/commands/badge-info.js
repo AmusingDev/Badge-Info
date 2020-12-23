@@ -55,7 +55,6 @@ module.exports.run = async (client, msg, args) => {
 			if (flags.toArray().includes("VERIFIED_DEVELOPER")) arr.push('<:vbd:745221219149807686> Early Verified Bot Developer');
 			if (flags.toArray().includes("DISCORD_PARTNER")) arr.push('<:partner:749958760847376424> Partnered Server Owner');
 			if (flags.toArray().includes("DISCORD_EMPLOYEE")) arr.push('<:staff:745221908236337224> Discord Employee');
-			//if (nitro.toArray().includes("NITRO") || nitro.toArray().includes("NITRO_CLASSIC")) arr.push('<:nitro:745221508707909742> Nitro');
 
 		} else {
 			arr = 'None';
