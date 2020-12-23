@@ -1,16 +1,14 @@
 const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
 const botconfig = require('./../botconfig.json');
-const prefix = botconfig.prefix;
+const prefix = config.prefix;
 
 module.exports.run = async (client, msg, args) => {
-
-	let msgString = msg.content.split(' ');
-
-	if (msgString[2]) return;
+	
+	if (args[1]) return;
 	if (msg.author.bot) return;
 
-	if (!msgString[1]) {
+	if (!args[0]) {
 
 		let arr = [];
 		const mainUser = msg.author;
@@ -27,13 +25,12 @@ module.exports.run = async (client, msg, args) => {
 		if (flags.toArray().includes("VERIFIED_DEVELOPER")) arr.push('<:vbd:745221219149807686> Early Verified Bot Developer');
 		if (flags.toArray().includes("DISCORD_PARTNER")) arr.push('<:partner:749958760847376424> Partnered Server Owner');
 		if (flags.toArray().includes("DISCORD_EMPLOYEE")) arr.push('<:staff:745221908236337224> Discord Staff');
-		//if (nitro === 1 || nitro === 2) arr.push('<:nitro:745221508707909742> Nitro');
 
 		if (!arr) arr = 'None';
 
 		const embed = new MessageEmbed()
 
-			.setColor(botconfig.embedColor)
+			.setColor(config.embedColor)
 			.setTitle(`List of ${msg.author.username}#${msg.author.discriminator}'s Badges`)
 			.setDescription(arr)
 
@@ -42,7 +39,7 @@ module.exports.run = async (client, msg, args) => {
 	} else {
 
 		let arr = [];
-		const mainUser = client.users.cache.get(msgString[1]) || msg.mentions.users.first();
+		const mainUser = client.users.cache.get(args[0]) || msg.mentions.users.first();
 		const flags = mainUser.flags;
 		const nitro = mainUser.premium_type;
 
@@ -66,7 +63,7 @@ module.exports.run = async (client, msg, args) => {
 
 		const embed = new MessageEmbed()
 
-			.setColor(botconfig.embedColor)
+			.setColor(config.embedColor)
 			.setTitle(`List of ${mainUser.username}#${mainUser.discriminator}'s Badges`)
 			.setDescription(arr)
 
