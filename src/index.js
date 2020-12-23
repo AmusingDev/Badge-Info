@@ -1,9 +1,11 @@
 // ------------------------------- PACKAGES ------------------------------- //
 
 const Discord = require('discord.js');
+const config = require("./config.js");
 const client = new Discord.Client();
 
 const fs = require('fs');
+let prefix = config.prefix;
 client.commands = new Discord.Collection();
 
 // ------------------------------- READING COMMANDS ------------------------------- //
@@ -36,11 +38,13 @@ client.on('ready', () => {
 
 client.on('error', console.error);
 
+// ------------------------------- ON MESSAGE ------------------------------- //
+
 client.on('message', async msg => {
+	
 	let messageArray = msg.content.split(' ');
 	let cmd = messageArray[0];
 	let args = messageArray.slice(1);
-	let prefix = botconfig.prefix;
 
 	if (msg.author.bot) return;
 
